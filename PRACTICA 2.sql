@@ -52,3 +52,22 @@ NOMAXVALUE; --NO TIENE LIMITE SUPERIOR MILLONES DE REGISTROS
 CREATE TABLE PERSONA(ID_PERSONA INTEGER,
 NOMBRE VARCHAR2(20), EDAD INTEGER,
 CONSTRAINT PK_ID_PERSONA PRIMARY KEY (ID_PERSONA));
+
+CREATE OR REPLACE PROCEDURE guardar_persona(my_id OUT integer, my_nombre IN varchar2, my_edad IN integer)
+AS
+BEGIN
+select sec_persona.nextval INTO my_id from DUAL; --UN CURSOS ES UN JOIN SE UNA LA SECUENCIA PERSONA Y SU TABLA PERSONA 
+insert into persona values(my_id,my_nombre,my_edad);
+END;
+/
+
+declare
+valor integer;
+begin
+guardar_persona(valor,'fernando',20);
+end;
+/
+select *from persona;
+
+
+
