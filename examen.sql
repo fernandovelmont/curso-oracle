@@ -49,7 +49,7 @@ my_did_direccion in integer)
 as
 begin
 select sec_usuario.nextval into my_id_usuario from dual;
-insert into usuario(id_usuario,nombre, email, login, contraseña, hid_hobbie , did_direccion)
+insert into usario(id_usuario,nombre, email, login, contraseña, hid_hobbie , did_direccion)
 values(my_id_usuario,my_nombre,my_email,my_login,my_contraseña,my_hid_hobbie,my_did_direccion);
 end;
 /
